@@ -34,26 +34,34 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
-def is_prime(n):
-    # Numbers less than 2 are NOT prime
-    if n < 2:
-        return False
-    
-    # Check if n is divisible by any number from 2 to n-1
-    for i in range(2, n):
-        if n % i == 0:
-            return False  # Found a divisor - NOT prime
-    
-    return True  # No divisors found - IS prime
+#include <iostream>
+using namespace std;
 
-# Main block - asks user for input and displays result
-def main():
-    number = int(input("Enter a number: "))
+bool isPrime(int n) {
+    if (n < 2) {
+        return false;
+    }
     
-    if is_prime(number):
-        print(number, "is a prime number.")
-    else:
-        print(number, "is NOT a prime number.")
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
-# This calls the main function when the program runs
-main()
+int main() {
+    int number;
+    
+    cout << "Enter a number: ";
+    cin >> number;
+    
+    if (isPrime(number)) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is NOT a prime number." << endl;
+    }
+    
+    return 0;
+}
