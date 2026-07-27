@@ -57,3 +57,70 @@
 #include <iostream>
 using namespace std;
 
+// =============================================================================
+// PART A — Single Table
+// =============================================================================
+void printSingleTable(int num) {
+    cout << "\nMultiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+    }
+}
+
+// =============================================================================
+// PART B — Tables from 1 to N
+// =============================================================================
+void printMultipleTables(int n) {
+    for (int num = 1; num <= n; num++) {
+        cout << "\nMultiplication Table for " << num << ":" << endl;
+        for (int i = 1; i <= 12; i++) {
+            cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+        }
+        if (num < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+// =============================================================================
+// MAIN MENU
+// =============================================================================
+int main() {
+    int choice;
+    
+    cout << "=== MULTIPLICATION TABLE GENERATOR ===" << endl;
+    cout << "1. Print Single Table (1-12)" << endl;
+    cout << "2. Print Tables from 1 to N" << endl;
+    cout << "3. Exit" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    
+    switch (choice) {
+        case 1: {
+            int num;
+            cout << "Enter a number: ";
+            cin >> num;
+            printSingleTable(num);
+            break;
+        }
+        case 2: {
+            int n;
+            cout << "Enter a number (N): ";
+            cin >> n;
+            
+            if (n <= 0) {
+                cout << "Error: N must be a positive integer." << endl;
+            } else {
+                printMultipleTables(n);
+            }
+            break;
+        }
+        case 3:
+            cout << "Goodbye!" << endl;
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    
+    return 0;
+}
